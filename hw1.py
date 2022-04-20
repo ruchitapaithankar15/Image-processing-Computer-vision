@@ -88,9 +88,9 @@ def convolve_pixel(img, kernel, i, j):
     # TODO: determine, using the kernel shape, the ith and jth locations to start at.
 
     # TODO: Check if the kernel stretches beyond the border of the image.
-    if .....:
+    #if .....:
         # TODO: if so, return the input pixel at that location.
-    else:
+    #else:
         # TODO: perform the convolution.
 
 
@@ -122,7 +122,13 @@ def split(img):
     """
     if img.shape[2] != 3:
         raise ValueError('The split function requires a 3-channel input image')
-    # TODO: Implement me
+    split_img = np.dsplit(img,3)
+    for i in range(3):
+        split_img[i] = np.squeeze(split_img[i])
+    R,G,B = split_img
+    return (R,G,B)
+
+
 
 
 def merge(r, g, b):
@@ -138,6 +144,8 @@ def merge(r, g, b):
         A height x width x 3 ndarray representing the color image.
     """
     # TODO: Implement me
+    merged = np.dstack((r,g,b))
+    return merged
 
 
 """
